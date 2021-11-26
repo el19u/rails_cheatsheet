@@ -155,7 +155,7 @@ params.require(:hash_name).permit(:col)
 
 ```
   def index
-    @<name> = <name>.all
+    @<name> = <Name>.all
   end
 
   def show
@@ -163,33 +163,35 @@ params.require(:hash_name).permit(:col)
   end
 
   def new
-    @<name> = <name>.new
+    @<name> = <Name>.new
   end
 
   def create
-    @<name> = <name>.new(<name>_params)
+    @<name> = <Name>.new(<name>_params)
     if @<name>.save
-      redirect_to
+      redirect_to <name>_path
     else
       render :new
     end
   end
 
   def edit
+    @<name> = <Name>.find(params[:id])
   end
 
   def update
-    @<name> = <name>.find(params[:id])
+    @<name> = <Name>.find(params[:id])
     if @<name>.save
-      redirect_to
+      redirect_to <name>_path
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy
-    @<name> = <name>.find(params[:id])
+    @<name> = <Name>.find(params[:id])
     @<name>.destroy if <name>
+    redirect_to <name>_path
   end
 
   private
