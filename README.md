@@ -199,3 +199,11 @@ params.require(:hash_name).permit(:col)
     params.require(:hash_name).permit(:col)
   end
 ```
+
+## Form
+
+Form_with
+
+```
+form_with(model: <name>, path)
+```
