@@ -18,8 +18,8 @@ $ rails new <app_name>
 (-d = database)
 
 ```ruby
-$ rails new app --d=postgresql
-$ rails new app --d=mysql
+$ rails new app --database=postgresql
+$ rails new app --database=mysql
 ```
 
 如果使用 PostgreSQL or MySQL，要先建立 DB
