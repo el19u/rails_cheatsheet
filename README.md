@@ -14,6 +14,12 @@ $ gem install rails
 $ rails new <app_name>
 ```
 
+指定 Rails 版本
+
+```ruby
+$ rails _6.1.1.1_ new <app_name>
+```
+
 建立新的 Rails 檔案，並將資料庫從 SQLite -> PostgreSQL or MySQL
 (-d = database)
 
@@ -137,6 +143,20 @@ resources :<app_name>
 resource :<app_name>
 ```
 
+額外增加路徑
+
+```
+resources :<app_name> do
+  member do
+    get :<route_name>
+end
+
+resources :<app_name> do
+  collection do
+    get :<route_name>
+end
+```
+
 ## Rails Controller
 
 執行 Action 前先載入
@@ -205,5 +225,5 @@ params.require(:hash_name).permit(:col)
 Form_with
 
 ```
-form_with(model: <name>, path)
+form_with(model: <name>, url, local, )
 ```
