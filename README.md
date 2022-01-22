@@ -145,15 +145,15 @@ resource :<app_name>
 
 額外增加路徑
 
-```
+```ruby
 resources :<app_name> do
   member do
     get :<route_name>
-end
+  end
 
-resources :<app_name> do
   collection do
     get :<route_name>
+  end
 end
 ```
 
@@ -173,13 +173,14 @@ params.require(:hash_name).permit(:col)
 
 簡易 7 條 RESTful Action
 
-```
+```ruby
+  before_action: :find_params, only: [:show, :edit, :update, :destroy]
+
   def index
     @<name> = <Name>.all
   end
 
   def show
-
   end
 
   def new
@@ -201,7 +202,7 @@ params.require(:hash_name).permit(:col)
 
   def update
     @<name> = <Name>.find(params[:id])
-    if @<name>.save
+    if @<name>.save(<name>_params)
       redirect_to <name>_path
     else
       render :edit
@@ -217,6 +218,10 @@ params.require(:hash_name).permit(:col)
   private
   def <name>_params
     params.require(:hash_name).permit(:col)
+  end
+
+  def find_params
+    @<name> = <Name>.find(params[:id])
   end
 ```
 
