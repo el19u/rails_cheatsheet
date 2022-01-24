@@ -224,11 +224,3 @@ params.require(:hash_name).permit(:col)
     @<name> = <Name>.find(params[:id])
   end
 ```
-
-## Form
-
-Form_with
-
-```
-form_with(model: <name>, url, local, )
-```
