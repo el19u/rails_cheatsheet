@@ -123,27 +123,24 @@ remove_index(table_name, col, option)
 
 ## Rails Routes
 
-Routes 使用的 HTTP 方法有五種，GET / POST / PATCH / PUT/ DELETE
+### RESTful 路徑
 
-```ruby
-# /config/routes/routes.rb
-
-GET "/", to: "<app_name>#index"
-POST "/", to: "<app_name>#create"
-PATCH "/:id", to: "<app_name>#index"
-PUT "/:id", to: "<app_name>#index"
-DELETE "/:id", to: "<app_name>#destroy"
-```
-
-RESTful 路徑
 ( resource 不含 :id , index ) 路徑
 
 ```ruby
+# /config/routes/routes.rb
 resources :<app_name>
-resource :<app_name>
+
+GET "/", to: "<app_name>#index"
+GET "/:id", to "<app_name>#show"
+GET "/new", to: "<app_name>#new"
+POST "/", to: "<app_name>#create"
+GET "/:id/edit" to: "<app_name>#edit"
+PATCH/PUT "/:id", to: "<app_name>#update"
+DELETE "/:id", to: "<app_name>#destroy"
 ```
 
-額外增加路徑
+### 額外增加路徑
 
 ```ruby
 resources :<app_name> do
